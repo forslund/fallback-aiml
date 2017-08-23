@@ -43,7 +43,6 @@ class AimlFallback(FallbackSkill):
             aimls = listdir(self.aiml_path)
             for aiml in aimls:
                 self.kernel.bootstrap(learnFiles=self.aiml_path + "/" + aiml)
-            self.kernel.saveBrain(self.brain_path)
 
     def initialize(self):
         self.register_fallback(self.handle_fallback, 99)
@@ -58,7 +57,6 @@ class AimlFallback(FallbackSkill):
         return True
 
     def shutdown(self):
-        self.kernel.saveBrain(self.brain_path)
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
 
