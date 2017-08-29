@@ -34,7 +34,7 @@ class AimlFallback(FallbackSkill):
         # TODO read from config maybe?
         self.aiml_path = dirname(__file__) + "/aiml"
         self.brain_path = dirname(__file__) + "/bot_brain.brn"
-        self.load_brain()
+        #self.load_brain()
 
     def load_brain(self):
         aimls = listdir(self.aiml_path)
@@ -42,7 +42,8 @@ class AimlFallback(FallbackSkill):
             self.kernel.bootstrap(learnFiles=self.aiml_path + "/" + aiml)
 
     def initialize(self):
-        self.register_fallback(self.handle_fallback, 99)
+        #self.register_fallback(self.handle_fallback, 99)
+        pass
 
     def ask_brain(self, utterance):
         response = self.kernel.respond(utterance)
