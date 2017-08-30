@@ -51,8 +51,11 @@ class AimlFallback(FallbackSkill):
 
     def handle_fallback(self, message):
         utterance = message.data.get("utterance")
-        self.speak(self.ask_brain(utterance))
-        return True
+        answer = self.ask_brain(utterance)
+        if answer != "":
+            self.speak(answer)
+            return True
+        return False
 
     def shutdown(self):
         self.kernel.resetBrain() # Manual remove
