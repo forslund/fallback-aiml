@@ -1,0 +1,19 @@
+{
+  "identifier": "AimlFallback",
+  "name": "Chatbot Fallback",
+  "skillMetadata": {
+      "sections": [
+          {
+              "name": "Options",
+              "fields": [
+                  {
+                      "name": "enabled",
+                      "type": "checkbox",
+                      "label": "Enable chatbot fallback",
+                      "value": "true"
+                  }
+              ]
+          }
+      ]
+  }
+}

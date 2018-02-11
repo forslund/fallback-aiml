@@ -30,10 +30,16 @@ __author__ = 'jarbas, nielstron'
 
 LOGGER = getLogger(__name__)
 
+def strTobool(v):
+    """ Converts String to boolean representation
+        From https://stackoverflow.com/questions/715417/
+        converting-from-a-string-to-boolean-in-python/715468#715468
+    """
+    return v.lower() in ("yes", "true", "t", "1")
 
 class AimlFallback(FallbackSkill):
     def __init__(self):
-        super(AimlFallback, self).__init__(name='AimlSkill')
+        super(AimlFallback, self).__init__(name='AimlFallback')
         self.kernel = aiml.Kernel()
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
         self.brain_path = os.path.join(dirname(__file__),"bot_brain.brn")
@@ -54,7 +60,7 @@ class AimlFallback(FallbackSkill):
     def initialize(self):
         self.register_fallback(self.handle_fallback, 40)
 
-    @intent_handler(IntentBuilder().require("Reset").require("Memory"))
+    @intent_handler(IntentBuilder("ResetMemoryIntent").require("Reset").require("Memory"))
     def handle_reset_brain(self, message):
         # delete the brain file and reset memory
         self.speak_dialog("reset.memory")
