@@ -1,0 +1,1 @@
+Entferne alice.aiml, pickup.aiml

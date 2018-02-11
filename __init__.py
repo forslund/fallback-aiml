@@ -17,12 +17,16 @@
 
 
 import aiml
-from os import listdir
+import os
+from os import listdir, remove as remove_file
 from os.path import dirname, isfile
-from mycroft.skills.core import FallbackSkill
+
+from mycroft.api import DeviceApi
+from mycroft.skills.core import FallbackSkill, intent_handler
+from adapt.intent import IntentBuilder
 from mycroft.util.log import getLogger
 
-__author__ = 'jarbas'
+__author__ = 'jarbas, nielstron'
 
 LOGGER = getLogger(__name__)
 
@@ -31,9 +35,8 @@ class AimlFallback(FallbackSkill):
     def __init__(self):
         super(AimlFallback, self).__init__(name='AimlSkill')
         self.kernel = aiml.Kernel()
-        # TODO read from config maybe?
-        self.aiml_path = dirname(__file__) + "/aiml"
-        self.brain_path = dirname(__file__) + "/bot_brain.brn"
+        self.aiml_path = os.path.join(dirname(__file__),"aiml")
+        self.brain_path = os.path.join(dirname(__file__),"bot_brain.brn")
         self.load_brain()
 
     def load_brain(self):
@@ -42,15 +45,28 @@ class AimlFallback(FallbackSkill):
         else:
             aimls = listdir(self.aiml_path)
             for aiml in aimls:
-                self.kernel.bootstrap(learnFiles=self.aiml_path + "/" + aiml)
+                self.kernel.learn(os.path.join(self.aiml_path, aiml))
+
+            device = DeviceApi().get()
+            self.kernel.setBotPredicate("name", device["name"])
             self.kernel.saveBrain(self.brain_path)
 
     def initialize(self):
-        self.register_fallback(self.handle_fallback, 20)
-        pass
+        self.register_fallback(self.handle_fallback, 40)
+
+    @intent_handler(IntentBuilder().require("Reset").require("Memory"))
+    def handle_reset_brain(self, message):
+        # delete the brain file and reset memory
+        self.speak_dialog("reset.memory")
+        self.kernel.resetBrain()
+        remove_file(self.brain_path)
+        # also reload base knowledge
+        self.load_brain()
 
     def ask_brain(self, utterance):
         response = self.kernel.respond(utterance)
+        # make a security copy once in a while
+        # TODO maybe every 10th time?
         self.kernel.saveBrain(self.brain_path)
         return response
 
@@ -66,10 +82,13 @@ class AimlFallback(FallbackSkill):
         return False
 
     def shutdown(self):
-        self.kernel.saveBrain(self.brain_path)
-        self.kernel.resetBrain() # Manual remove
+        #self.kernel.saveBrain(self.brain_path)
+        #self.kernel.resetBrain() # Manual remove
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
+
+    def stop(self):
+        pass
 
 def create_skill():
     return AimlFallback()
