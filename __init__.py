@@ -39,7 +39,7 @@ def strTobool(v):
 
 class AimlFallback(FallbackSkill):
     def __init__(self):
-        super(AimlFallback, self).__init__(name='AimlFallback')
+        super(AimlFallback, self).__init__(name='AimlSkill')
         self.kernel = aiml.Kernel()
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
         self.brain_path = os.path.join(dirname(__file__),"bot_brain.brn")
