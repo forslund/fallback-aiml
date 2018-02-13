@@ -9,15 +9,7 @@
 <!-- as adopted by the ALICE A.I. Foundation.  -->
 <!-- Last modified 11/28/2011 -->
 <!-- -->
-<category><pattern>*</pattern>
-<template>
-<srai>RANDOM PICKUP LINE</srai> 
-<think>
-<set name="it"><set name="topic"><person/></set></set> 
-<srai>PUSH <get name="topic"/></srai> 
-</think>
-</template>
-</category>
+
 <category><pattern>RANDOM PICKUP LINE</pattern>
 <template><random>
 <li><srai>AGE INQUIRY</srai></li>
