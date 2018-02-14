@@ -9,6 +9,7 @@
 <!-- as adopted by the ALICE A.I. Foundation.  -->
 <!-- Last modified 11/28/2011 -->
 <!-- -->
+
 <category><pattern>RANDOM PICKUP LINE</pattern>
 <template><random>
 <li><srai>AGE INQUIRY</srai></li>

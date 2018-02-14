@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="ISO-8859-1"?> 
+ï»¿<?xml version="1.0" encoding="utf-8"?> 
 <aiml version="1.0">
 
 <!-- Free software (c)2008 Square Bear. -->
@@ -1514,7 +1514,7 @@ AD 41 - Roman Emperor Caligula murdered in Rome<br/>
 <category>
 <pattern>FEBRUARY 26</pattern>
 <template>
-1797 - First £1 notes issused by the Bank of England<br/>
+1797 - First Â£1 notes issused by the Bank of England<br/>
 1815 - Escape of Napoleon Bonaparte from Elba
 </template>
 </category>
@@ -1630,7 +1630,7 @@ AD 41 - Roman Emperor Caligula murdered in Rome<br/>
 <template>
 1682 - Royal Chelsea Hospital founded<br/>
 1985 - Mikhail Gorbachev appointed General Secretary of the Communist Party of the Soviet Union<br/>
-1988 - The Bank of England £1 note ceased to be legal tender
+1988 - The Bank of England Â£1 note ceased to be legal tender
 </template>
 </category>
 
@@ -2000,7 +2000,7 @@ AD 41 - Roman Emperor Caligula murdered in Rome<br/>
 <pattern>APRIL 22</pattern>
 <template>
 1915 - First use of poison gas (by Germans at Ypres)<br/>
-1983 - Introduction of £1 coins in Britain
+1983 - Introduction of Â£1 coins in Britain
 </template>
 </category>
 
@@ -2342,7 +2342,7 @@ AD 41 - Roman Emperor Caligula murdered in Rome<br/>
 <category>
 <pattern>JUNE 01</pattern>
 <template>
-1946 - Television licences introduced in Britain (£2)<br/>
+1946 - Television licences introduced in Britain (Â£2)<br/>
 1957 - The first Premium Bond winner drawn
 </template>
 </category>
