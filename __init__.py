@@ -43,7 +43,7 @@ class AimlFallback(FallbackSkill):
         super(AimlFallback, self).__init__(name='AimlFallback')
         self.kernel = aiml.Kernel()
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
-        self.brain_path = os.path.join(dirname(__file__),"bot_brain.brn")
+        self.brain_path = os.path.join(dirname(__file__), "brain", "bot_brain.brn")
         self.load_brain()
         return
 
@@ -66,9 +66,10 @@ class AimlFallback(FallbackSkill):
         self.kernel.setBotPredicate("family", "virtual personal assistant")
         self.kernel.setBotPredicate("order", "virtual intelligence")
         self.kernel.setBotPredicate("class", "computer program")
+        self.kernel.setBotPredicate("kingdom", "machine")
         self.kernel.setBotPredicate("hometown", "127.0.0.1")
-        self.kernel.setBotPredicate("kingdom", "internet")
-        self.kernel.setBotPredicate("botmaster", "the community")
+        self.kernel.setBotPredicate("botmaster", "master")
+        self.kernel.setBotPredicate("master", "the community")
         # IDEA: extract age from https://api.github.com/repos/MycroftAI/mycroft-core created_at date
         self.kernel.setBotPredicate("age", "2")
         return
@@ -106,7 +107,6 @@ class AimlFallback(FallbackSkill):
         #self.kernel.resetBrain() # Manual remove
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
-        return
 
     def stop(self):
         pass
