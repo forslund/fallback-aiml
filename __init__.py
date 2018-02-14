@@ -38,12 +38,18 @@ def strTobool(v):
     return v.lower() in ("yes", "true", "t", "1")
 
 class AimlFallback(FallbackSkill):
+
     def __init__(self):
         super(AimlFallback, self).__init__(name='AimlFallback')
         self.kernel = aiml.Kernel()
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
         self.brain_path = os.path.join(dirname(__file__),"bot_brain.brn")
         self.load_brain()
+        return
+
+    def initialize(self):
+        self.register_fallback(self.handle_fallback, 40)
+        return
 
     def load_brain(self):
         if isfile(self.brain_path):
@@ -56,12 +62,16 @@ class AimlFallback(FallbackSkill):
         device = DeviceApi().get()
         self.kernel.setBotPredicate("name", device["name"])
         self.kernel.setBotPredicate("species", device["type"])
-        self.kernel.setBotPredicate("genus", "virtual intelligence")
+        self.kernel.setBotPredicate("genus", "Mycroft")
+        self.kernel.setBotPredicate("family", "virtual personal assistant")
+        self.kernel.setBotPredicate("order", "virtual intelligence")
+        self.kernel.setBotPredicate("class", "computer program")
         self.kernel.setBotPredicate("hometown", "127.0.0.1")
         self.kernel.setBotPredicate("kingdom", "internet")
-
-    def initialize(self):
-        self.register_fallback(self.handle_fallback, 40)
+        self.kernel.setBotPredicate("botmaster", "the community")
+        # IDEA: extract age from https://api.github.com/repos/MycroftAI/mycroft-core created_at date
+        self.kernel.setBotPredicate("age", "2")
+        return
 
     @intent_handler(IntentBuilder("ResetMemoryIntent").require("Reset").require("Memory"))
     def handle_reset_brain(self, message):
@@ -71,6 +81,7 @@ class AimlFallback(FallbackSkill):
         remove_file(self.brain_path)
         # also reload base knowledge
         self.load_brain()
+        return
 
     def ask_brain(self, utterance):
         response = self.kernel.respond(utterance)
@@ -95,6 +106,7 @@ class AimlFallback(FallbackSkill):
         #self.kernel.resetBrain() # Manual remove
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
+        return
 
     def stop(self):
         pass
