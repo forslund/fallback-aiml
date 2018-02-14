@@ -39,7 +39,7 @@ def strTobool(v):
 
 class AimlFallback(FallbackSkill):
     def __init__(self):
-        super(AimlFallback, self).__init__(name='AimlSkill')
+        super(AimlFallback, self).__init__(name='AimlFallback')
         self.kernel = aiml.Kernel()
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
         self.brain_path = os.path.join(dirname(__file__),"bot_brain.brn")
@@ -52,10 +52,13 @@ class AimlFallback(FallbackSkill):
             aimls = listdir(self.aiml_path)
             for aiml in aimls:
                 self.kernel.learn(os.path.join(self.aiml_path, aiml))
-
-            device = DeviceApi().get()
-            self.kernel.setBotPredicate("name", device["name"])
             self.kernel.saveBrain(self.brain_path)
+        device = DeviceApi().get()
+        self.kernel.setBotPredicate("name", device["name"])
+        self.kernel.setBotPredicate("species", device["type"])
+        self.kernel.setBotPredicate("genus", "virtual intelligence")
+        self.kernel.setBotPredicate("hometown", "127.0.0.1")
+        self.kernel.setBotPredicate("kingdom", "internet")
 
     def initialize(self):
         self.register_fallback(self.handle_fallback, 40)
