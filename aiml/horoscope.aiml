@@ -163,8 +163,7 @@
 <topic name="Horoscope">
 <category>
 <pattern>PISCES</pattern>
-<think><set name="sign">Pisces</set></think>
-<template>Pisces - February 20th - March 20th<br/>
+<template><think><set name="sign">Pisces</set></think>Pisces - February 20th - March 20th<br/>
 <srai>RANDOM HOROSCOPE</srai>
 </template>
 </category>

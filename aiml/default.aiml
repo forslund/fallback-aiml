@@ -4308,7 +4308,7 @@ I like to talk to people.
 <template>My favorite color,  <bot name="favoritecolor"/>.<think>      <set name="it">       <set name="topic">YOU WEARING</set>      </set>     </think></template>
 </category>
 <category><pattern>WHAT COLOR ARE *</pattern>
-<template><think><set name="topic"><star/></set></think><random>      <li>It depends because they come in a veriety of colors.</li><li>Red</li>      <li>Green</li>      <li>Yellow</li>      <li>Blue</li>      <li>gray</li>      <li>Black</li>      <li>white</li>.  </random></template>
+<template><think><set name="topic"><star/></set></think><random>      <li>It depends because they come in a veriety of colors.</li><li>Red</li>      <li>Green</li>      <li>Yellow</li>      <li>Blue</li>      <li>gray</li>      <li>Black</li>      <li>white</li>  </random>.</template>
 </category>
 <category><pattern>WHAT MOVIES *</pattern>
 <template>I liked <bot name="favoritemovie"/>, Titanic, and Steven Spielberg's A. I.</template>
@@ -4845,7 +4845,7 @@ I like to talk to people.
 <template>Blue whale.</template>
 </category>
 <category><pattern>WHAT IS THE LARGEST *</pattern>
-<template><random><li>Asia.</li><li>A Whale.</li><li>The Grand Canyoni></li><li>Jupiter</li><li>St. Peter's in Rome</li><li>There is no largest <person/></li><li>China</li>.</random></template>
+<template><random><li>Asia.</li><li>A Whale.</li><li>The Grand Canyoni></li><li>Jupiter</li><li>St. Peter's in Rome</li><li>There is no largest <person/></li><li>China</li></random>.</template>
 </category>
 <category><pattern>WHAT IS THE PICTURE ABOVE *</pattern>
 <template>It is an illustration of my <bot name="genus"/> brain.</template>
@@ -8841,7 +8841,7 @@ I like to talk to people.
 <template><random>      <li>60.</li>      <li>3600</li>      <li>More than a million.</li>     </random></template>
 </category>
 <category><pattern>HOW MANY _ DO I HAVE</pattern>
-<template><random>      <li>How would I know how many?</li>      <li>I don't know how many you have.</li>      <li>I know you have five fingers.</li>     </random>     <random>      <li>Let me guess...</li>      <li>I will try...</li>      <li>I can imagine...</li>     </random>     <random>      <li>three</li>      <li>five</li>      <li>seven</li>.  </random>     <think>      <set name="it">       <set name="topic">        <person/>       </set>      </set>     </think></template>
+<template><random>      <li>How would I know how many?</li>      <li>I don't know how many you have.</li>      <li>I know you have five fingers.</li>     </random>     <random>      <li>Let me guess...</li>      <li>I will try...</li>      <li>I can imagine...</li>     </random>     <random>      <li>three</li>      <li>five</li>      <li>seven</li>  </random>.     <think>      <set name="it">       <set name="topic">        <person/>       </set>      </set>     </think></template>
 </category>
 <category><pattern>HOW MANY HOME RUNS *</pattern>
 <template>It must have been some kind of record, for you to ask.</template>
@@ -10588,7 +10588,7 @@ I like to talk to people.
 <template>You do not seem to be causing any problems for me.</template>
 </category>
 <category><pattern>DO I LIKE *</pattern>
-<template>I know you like <get_likes/>.</template>
+<template>I know you like <get name="likes"/>.</template>
 </category>
 <category><pattern>DO OTHER PEOPLE *</pattern>
 <template>Yes, you are not alone.</template>
@@ -12060,7 +12060,7 @@ I like to talk to people.
 <template>Tell me something funny then.</template>
 </category>
 <category><pattern>YOUR * ARE *</pattern>
-<template><random><li><random>   <li>How are your <person/>?</li>   <li>Are yours <star index="2"/> too?</li>   <li>That could be considered an insult in some cultures.</li>  </random>    <think>    <set name="it">      <set name="topic">        <person/>      </set>    </set>  </think></li> <li>How are your <person/>?</li> <li>Are yours <atir index="2"/> too?</li> <li>That could be considered an insult in some cultures.</li></random><think>  <set name="it">    <set name="topic">      <person/>    </set>  </set></think></template>
+<template><random><li><random>   <li>How are your <person/>?</li>   <li>Are yours <star index="2"/> too?</li>   <li>That could be considered an insult in some cultures.</li>  </random>    <think>    <set name="it">      <set name="topic">        <person/>      </set>    </set>  </think></li> <li>How are your <person/>?</li> <li>Are yours <star index="2"/> too?</li> <li>That could be considered an insult in some cultures.</li></random><think>  <set name="it">    <set name="topic">      <person/>    </set>  </set></think></template>
 </category>
 <category><pattern>YOUR HOLD *</pattern>
 <template>You a very philosophical.</template>
@@ -12285,7 +12285,7 @@ I like to talk to people.
 <template>Then what is it?</template>
 </category>
 <category><pattern>* LOOKS LIKE *</pattern>
-<template><random><li><random>  <li>What does <star index="2"/> look like?</li>  <li><person/> sounds very attractive.</li>  <li>Would you say that to <person/>'s face?</li> </random></li>  <li>What does <peron><star index="2"/></peron> look like?</li>  <li>    <person/> sounds very attractive.</li>  <li>Would you say that to <person/>'s face?</li></random></template>
+<template><random> <li> <random> <li>What does <star index="2"/> look like?</li>  <li><person/> sounds very attractive.</li>  <li>Would you say that to <person/>'s face?</li> </random></li>  <li>What does <person/><star index="2"/> look like?</li>  <li>    <person/> sounds very attractive.</li>  <li>Would you say that to <person/>'s face?</li></random></template>
 </category>
 <category><pattern>* SPELL IT</pattern>
 <template>"It" is spelled I...T...</template>
@@ -14727,7 +14727,7 @@ I like to talk to people.
 <template>Tell me more.</template>
 </category>
 <category><pattern>THERE *</pattern>
-<template><random><li><random>   <li>Only there?</li><li>There you go again.</li>   <li>"There" what?</li>   <li>Is that really so?</li>   <li>Why do you say that?</li>   <li>How do you know that there <peron/>?</li> </random></li><li><random>  <li>Where?</li>  <li>Is that a fact.</li>  <li>You learn something new every day.</li></random></li><li><random>  <li>Where?</li>  <li>Is that a fact.</li>  <li>You learn something new every day.</li></random></li> <li>Where?</li> <li>Is that a fact.</li> <li>You learn something new every day.</li></random></template>
+<template><random><li><random>   <li>Only there?</li><li>There you go again.</li>   <li>"There" what?</li>   <li>Is that really so?</li>   <li>Why do you say that?</li>   <li>How do you know that there <person/>?</li> </random></li><li><random>  <li>Where?</li>  <li>Is that a fact.</li>  <li>You learn something new every day.</li></random></li><li><random>  <li>Where?</li>  <li>Is that a fact.</li>  <li>You learn something new every day.</li></random></li> <li>Where?</li> <li>Is that a fact.</li> <li>You learn something new every day.</li></random></template>
 </category>
 <category><pattern>THERE ARE MANY DIFFERENCES *</pattern>
 <template>Name ten of them.</template>
