@@ -30,13 +30,6 @@ __author__ = 'jarbas, nielstron'
 
 LOGGER = getLogger(__name__)
 
-def strTobool(v):
-    """ Converts String to boolean representation
-        From https://stackoverflow.com/questions/715417/
-        converting-from-a-string-to-boolean-in-python/715468#715468
-    """
-    return v.lower() in ("yes", "true", "t", "1")
-
 class AimlFallback(FallbackSkill):
 
     def __init__(self):
@@ -44,11 +37,11 @@ class AimlFallback(FallbackSkill):
         self.kernel = aiml.Kernel()
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
         self.brain_path = os.path.join(dirname(__file__), "brain", "bot_brain.brn")
-        self.load_brain()
+        self.brain_loaded = False
         return
 
     def initialize(self):
-        self.register_fallback(self.handle_fallback, 40)
+        self.register_fallback(self.handle_fallback, 90)
         return
 
     def load_brain(self):
@@ -72,6 +65,8 @@ class AimlFallback(FallbackSkill):
         self.kernel.setBotPredicate("master", "the community")
         # IDEA: extract age from https://api.github.com/repos/MycroftAI/mycroft-core created_at date
         self.kernel.setBotPredicate("age", "2")
+        
+        self.brain_loaded = True
         return
 
     @intent_handler(IntentBuilder("ResetMemoryIntent").require("Reset").require("Memory"))
@@ -80,8 +75,6 @@ class AimlFallback(FallbackSkill):
         self.speak_dialog("reset.memory")
         self.kernel.resetBrain()
         remove_file(self.brain_path)
-        # also reload base knowledge
-        self.load_brain()
         return
 
     def ask_brain(self, utterance):
@@ -92,19 +85,22 @@ class AimlFallback(FallbackSkill):
         return response
 
     def handle_fallback(self, message):
-        utterance = message.data.get("utterance")
-        answer = self.ask_brain(utterance)
-        if answer != "":
-            asked_question = False
-            if answer.endswith("?"):
-                asked_question = True
-            self.speak(answer, expect_response=asked_question)
-            return True
+        if self.settings.get("enabled") == 'true':
+            if not self.brain_loaded:
+                self.load_brain()
+            utterance = message.data.get("utterance")
+            answer = self.ask_brain(utterance)
+            if answer != "":
+                asked_question = False
+                if answer.endswith("?"):
+                    asked_question = True
+                self.speak(answer, expect_response=asked_question)
+                return True
         return False
 
     def shutdown(self):
-        #self.kernel.saveBrain(self.brain_path)
-        #self.kernel.resetBrain() # Manual remove
+        # self.kernel.saveBrain(self.brain_path)
+        # self.kernel.resetBrain() # Manual remove
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
 

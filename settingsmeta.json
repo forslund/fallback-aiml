@@ -10,7 +10,7 @@
                       "name": "enabled",
                       "type": "checkbox",
                       "label": "Enable chatbot fallback",
-                      "value": "true"
+                      "value": "false"
                   }
               ]
           }
