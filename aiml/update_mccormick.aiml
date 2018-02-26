@@ -93,17 +93,7 @@
 <pattern>WHO IS SIRI</pattern>
 
 <template> <srai>WHAT IS SIRI</srai></template>
-</category>
-
- 
-
-<category>
-<pattern>WHAT IS YOUR *</pattern>
-
-
-</category>
-
- 
+</category> 
 
 <category>
 <pattern>WHAT IS YOUR ALIGNMENT</pattern>
@@ -134,15 +124,6 @@
 
 <template>How long have you been married? <think><set name="spouse"><person><star/></person></set></think></template>
 </category>
-
- 
-
-<category>
-<pattern>I AM MARRIED TO *</pattern>
-
-
-</category>
-
  
 
 <category>
