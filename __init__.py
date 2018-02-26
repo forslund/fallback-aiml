@@ -30,13 +30,6 @@ __author__ = 'jarbas, nielstron'
 
 LOGGER = getLogger(__name__)
 
-def strTobool(v):
-    """ Converts String to boolean representation
-        From https://stackoverflow.com/questions/715417/
-        converting-from-a-string-to-boolean-in-python/715468#715468
-    """
-    return v.lower() in ("yes", "true", "t", "1")
-
 class AimlFallback(FallbackSkill):
 
     def __init__(self):
@@ -48,7 +41,7 @@ class AimlFallback(FallbackSkill):
         return
 
     def initialize(self):
-        self.register_fallback(self.handle_fallback, 40)
+        self.register_fallback(self.handle_fallback, 90)
         return
 
     def load_brain(self):
@@ -103,8 +96,6 @@ class AimlFallback(FallbackSkill):
         return False
 
     def shutdown(self):
-        #self.kernel.saveBrain(self.brain_path)
-        #self.kernel.resetBrain() # Manual remove
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
 
