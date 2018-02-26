@@ -57,7 +57,7 @@ class AimlFallback(FallbackSkill):
         self.kernel.setBotPredicate("species", device["type"])
         self.kernel.setBotPredicate("genus", "Mycroft")
         self.kernel.setBotPredicate("family", "virtual personal assistant")
-        self.kernel.setBotPredicate("order", "virtual intelligence")
+        self.kernel.setBotPredicate("order", "artificial intelligence")
         self.kernel.setBotPredicate("class", "computer program")
         self.kernel.setBotPredicate("kingdom", "machine")
         self.kernel.setBotPredicate("hometown", "127.0.0.1")
