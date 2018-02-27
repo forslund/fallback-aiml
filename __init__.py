@@ -96,6 +96,7 @@ class AimlFallback(FallbackSkill):
         return False
 
     def shutdown(self):
+        self.kernel.resetBrain()
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
 
