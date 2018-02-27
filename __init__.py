@@ -72,9 +72,11 @@ class AimlFallback(FallbackSkill):
     @intent_handler(IntentBuilder("ResetMemoryIntent").require("Reset").require("Memory"))
     def handle_reset_brain(self, message):
         # delete the brain file and reset memory
-        self.speak_dialog("reset.memory")
+        if message is not None:
+            self.speak_dialog("reset.memory")
         self.kernel.resetBrain()
         remove_file(self.brain_path)
+        self.brain_loaded = False
         return
 
     def ask_brain(self, utterance):
@@ -96,11 +98,13 @@ class AimlFallback(FallbackSkill):
                     asked_question = True
                 self.speak(answer, expect_response=asked_question)
                 return True
+        if self.brain_loaded == True:
+            self.handle_reset_brain(None)
         return False
 
     def shutdown(self):
-        # self.kernel.saveBrain(self.brain_path)
-        # self.kernel.resetBrain() # Manual remove
+        self.kernel.saveBrain(self.brain_path)
+        self.kernel.resetBrain() # Manual remove
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
 
