@@ -36,9 +36,9 @@ class AimlFallback(FallbackSkill):
         super(AimlFallback, self).__init__(name='AimlFallback')
         self.kernel = aiml.Kernel()
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
-        self.brain_path = os.path.join(dirname(__file__), "brain", "bot_brain.brn")
+        self.brain_path = os.path.join(self.file_system.path,
+                                       "bot_brain.brn")
         self.brain_loaded = False
-        return
 
     def initialize(self):
         self.register_fallback(self.handle_fallback, 90)
