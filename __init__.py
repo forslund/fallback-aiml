@@ -52,7 +52,13 @@ class AimlFallback(FallbackSkill):
             for aiml in aimls:
                 self.kernel.learn(os.path.join(self.aiml_path, aiml))
             self.kernel.saveBrain(self.brain_path)
-        device = DeviceApi().get()
+        try:
+            device = DeviceApi().get()
+        except Exception:
+            device = {
+                "name": "Mycroft",
+                "species": "AI"
+            }
         self.kernel.setBotPredicate("name", device["name"])
         self.kernel.setBotPredicate("species", device["type"])
         self.kernel.setBotPredicate("genus", "Mycroft")
