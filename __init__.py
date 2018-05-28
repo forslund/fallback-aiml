@@ -40,7 +40,7 @@ class AimlFallback(FallbackSkill):
                                        "bot_brain.brn")
         # reloading skills will also reset this 'timer', so ideally it should not be too high
         self.line_count = 1
-        self.save_loop_threshold = 4
+        self.save_loop_threshold = int(self.settings.get('save_loop_threshold', 4))
 
         self.brain_loaded = False
 
@@ -92,7 +92,6 @@ class AimlFallback(FallbackSkill):
         # make a security copy once in a while
         if self.line_count%self.save_loop_threshold == 0:
             self.kernel.saveBrain(self.brain_path)
-            self.speak("saved" + str(self.line_count))
 
         self.line_count += 1
 
