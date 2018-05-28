@@ -38,6 +38,10 @@ class AimlFallback(FallbackSkill):
         self.aiml_path = os.path.join(dirname(__file__),"aiml")
         self.brain_path = os.path.join(self.file_system.path,
                                        "bot_brain.brn")
+        # reloading skills will also reset this 'timer', so ideally it should not be too high
+        self.line_count = 1
+        self.save_loop_threshold = 4
+
         self.brain_loaded = False
 
     def initialize(self):
@@ -86,8 +90,12 @@ class AimlFallback(FallbackSkill):
     def ask_brain(self, utterance):
         response = self.kernel.respond(utterance)
         # make a security copy once in a while
-        # TODO maybe every 10th time?
-        self.kernel.saveBrain(self.brain_path)
+        if self.line_count%self.save_loop_threshold == 0:
+            self.kernel.saveBrain(self.brain_path)
+            self.speak("saved" + str(self.line_count))
+
+        self.line_count += 1
+
         return response
     
     def soft_reset_brain(self):
