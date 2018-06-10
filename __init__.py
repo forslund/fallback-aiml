@@ -125,7 +125,7 @@ class AimlFallback(FallbackSkill):
         if self.brain_loaded:
             self.kernel.saveBrain(self.brain_path)
             self.kernel.resetBrain()  # Manual remove
-            self.remove_fallback(self.handle_fallback)
+        self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
 
     def stop(self):
