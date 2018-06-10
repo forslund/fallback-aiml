@@ -11,6 +11,12 @@
                       "type": "checkbox",
                       "label": "Enable chatbot fallback",
                       "value": "false"
+                  },
+                  {
+                      "name": "save_loop_threshold",
+                      "type": "input",
+                      "label": "Amount of chat lines before saving brain state",
+                      "value": 5
                   }
               ]
           }
