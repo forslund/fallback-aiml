@@ -42,9 +42,11 @@ class AimlFallback(FallbackSkill):
 
     def initialize(self):
         self.register_fallback(self.handle_fallback, 90)
+        LOGGER.info('Fallback registered')
         return
 
     def load_brain(self):
+        LOGGER.info('Loaded Brain')
         if isfile(self.brain_path):
             self.kernel.bootstrap(brainFile = self.brain_path)
         else:
@@ -59,8 +61,8 @@ class AimlFallback(FallbackSkill):
                 "name": "Mycroft",
                 "species": "AI"
             }
-        self.kernel.setBotPredicate("name", device["name"])
-        self.kernel.setBotPredicate("species", device["type"])
+        self.kernel.setBotPredicate("name", device.get("name", "Unknown"))
+        self.kernel.setBotPredicate("species", device.get("type", "Mycroft"))
         self.kernel.setBotPredicate("genus", "Mycroft")
         self.kernel.setBotPredicate("family", "virtual personal assistant")
         self.kernel.setBotPredicate("order", "artificial intelligence")
@@ -75,8 +77,10 @@ class AimlFallback(FallbackSkill):
         self.brain_loaded = True
         return
 
-    @intent_handler(IntentBuilder("ResetMemoryIntent").require("Reset").require("Memory"))
+    @intent_handler(IntentBuilder("ResetMemoryIntent").require("Reset")
+                                                      .require("Memory"))
     def handle_reset_brain(self, message):
+        LOGGER.info('DELETE DELETE DELETE!')
         # delete the brain file and reset memory
         self.speak_dialog("reset.memory")
         remove_file(self.brain_path)
@@ -113,9 +117,10 @@ class AimlFallback(FallbackSkill):
         return False
 
     def shutdown(self):
-        self.kernel.saveBrain(self.brain_path)
-        self.kernel.resetBrain() # Manual remove
-        self.remove_fallback(self.handle_fallback)
+        if self.brain_loaded:
+            self.kernel.saveBrain(self.brain_path)
+            self.kernel.resetBrain() # Manual remove
+            self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
 
     def stop(self):
