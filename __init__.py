@@ -126,8 +126,6 @@ class AimlFallback(FallbackSkill):
                     asked_question = True
                 self.speak(answer, expect_response=asked_question)
                 return True
-        if self.brain_loaded:
-            self.soft_reset_brain()
         return False
 
     def shutdown(self):
