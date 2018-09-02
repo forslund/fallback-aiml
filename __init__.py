@@ -45,6 +45,15 @@ class AimlFallback(FallbackSkill):
 
     def initialize(self):
         self.register_fallback(self.handle_fallback, 90)
+
+        # Update saved boolean value if old style
+        if self.settings.get('enabled') == 'True':
+            self.settings['enabled'] = True
+        elif self.settings.get('enabled') == 'False':
+            self.settings['enabled'] = False
+
+        if self.settings.get('enabled') == True:
+            self.load_brain()
         return
 
     def load_brain(self):
@@ -106,7 +115,7 @@ class AimlFallback(FallbackSkill):
         return
 
     def handle_fallback(self, message):
-        if self.settings.get("enabled") == 'true':
+        if self.settings.get('enabled', False):
             if not self.brain_loaded:
                 self.load_brain()
             utterance = message.data.get("utterance")
