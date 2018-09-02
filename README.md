@@ -1,14 +1,22 @@
-## AIML Fallback Skill
+# <img src='https://rawgithub.com/FortAwesome/Font-Awesome/master/advanced-options/raw-svg/solid/comment-dots.svg' card_color='#ff80b0' width='50' height='50' style='vertical-align:bottom'/> AIML Fallback
+This is a AIML fallback using the Alice chatbot files.
 
-
-## Description 
-This is a AIML fallback using the Alice chatbot files. This is based on the works of [JarbasAI](https://github.com/JarbasAI) to work stand-alone in the current mycroft-core (2017-08-09). 
+## About 
+The skill gives Mycroft a number of extra responses to various queries and gives him a bit of sass.
 
 ## Examples 
-* "Hey Mycroft, are you a robot?"
-* "Hey Mycroft, what is the name of my dog?"
+* "Do you like ice cream"
 
 ## Credits 
-JarbasAI
-nielstron
-forslund
+@jarbasal
+@nielstron
+@EazyAlvaro 
+@gras64
+@forslund
+
+## Category
+**Entertainment**
+
+## Tags
+#aiml
+#chatbot
