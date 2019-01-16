@@ -12,7 +12,7 @@ def test_runner(skill, example, emitter, loader):
             pass
 
     settings = MockSettings()
-    settings['enabled'] = 'true'
+    settings['enabled'] = True
     s[0].settings = settings
     with patch(s[0].__module__ + '.remove_file') as mock_remove:
         ret = SkillTest(skill, example, emitter).run(loader)
