@@ -106,7 +106,7 @@ class AimlFallback(FallbackSkill):
         return
 
     def handle_fallback(self, message):
-        if self.settings.get("enabled") == 'true':
+        if self.settings.get("enabled"):
             if not self.brain_loaded:
                 self.load_brain()
             utterance = message.data.get("utterance")
