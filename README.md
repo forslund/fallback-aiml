@@ -1,4 +1,4 @@
-# <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/robot.svg' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/>
+# <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/robot.svg' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/> AIML Fallback Skill 
  
 Give mycroft some sass with aiml responses for queries
 
@@ -24,7 +24,6 @@ This is based on the works of [JarbasAI](https://github.com/JarbasAI) with updat
 
 ## Category
 **Entertainment**
-WARNING: You have no Categories selected. Please ensure your Skill is assigned to at least one Category.
 
 ## Tags
 #aiml
