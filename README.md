@@ -1,13 +1,11 @@
-# <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/robot.svg' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/> AIML Fallback Skill 
+# <img src='https://raw.githack.com/FortAwesome/Font-Awesome/master/svgs/solid/robot.svg' card_color='#40DBB0' width='50' height='50' style='vertical-align:bottom'/> AIML Fallback
  
-Give mycroft some sass with aiml responses for queries
+Give Mycroft some sass with AIML!
 
 ## About 
-The skill adds a fallback supplying answers using the [Alice chatbot](https://www.chatbots.org/chatbot/a.l.i.c.e/). This adds some fun interactions to mycroft.
+The fallback leverages the [Alice chatbot](https://www.chatbots.org/chatbot/a.l.i.c.e/) to create some fun interactions.  Phrases not explicitly handled by other skills will be run by the chatbot, so nearly every interaction will have _some_ response.  But be warned, Mycroft might become a bit obnoxious...
 
-Warning, he might become a bit obnoxious...
-
-This is based on the works of [JarbasAI](https://github.com/JarbasAI) with updates from all over the Mycroft community.
+This is based on the original work of [JarbasAI](https://github.com/JarbasAI) with updates from all over the Mycroft community.
 
 ## Examples 
 * "Do you like ice cream"
@@ -20,12 +18,9 @@ This is based on the works of [JarbasAI](https://github.com/JarbasAI) with updat
 @EazyAlvaro
 @forslund
 
-
-
 ## Category
 **Entertainment**
 
 ## Tags
 #aiml
 #chatbot
-
