@@ -19,7 +19,7 @@
 import aiml
 import os
 from os import listdir, remove as remove_file
-from os.path import dirname, isfile
+from os.path import dirname, isfile, getsize
 
 from mycroft.api import DeviceApi
 from mycroft.skills.core import FallbackSkill, intent_handler
@@ -49,7 +49,8 @@ class AimlFallback(FallbackSkill):
 
     def load_brain(self):
         LOG.info('Loading Brain')
-        if isfile(self.brain_path):
+        if (isfile(self.brain_path) and
+                getsize(self.brain_path) > (1024 * 1024)):
             self.kernel.bootstrap(brainFile=self.brain_path)
         else:
             aimls = listdir(self.aiml_path)
