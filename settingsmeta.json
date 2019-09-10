@@ -1,5 +1,4 @@
 {
-  "identifier": "AimlFallback",
   "name": "Chatbot Fallback",
   "skillMetadata": {
       "sections": [
@@ -16,7 +15,7 @@
                       "name": "save_loop_threshold",
                       "type": "input",
                       "label": "Amount of chat lines before saving brain state",
-                      "value": 5
+                      "value": "5"
                   }
               ]
           }
