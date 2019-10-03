@@ -61,10 +61,10 @@ class AimlFallback(FallbackSkill):
         except Exception:
             device = {
                 "name": "Mycroft",
-                "type": "AI"
+                "platform": "AI"
             }
         self.kernel.setBotPredicate("name", device["name"])
-        self.kernel.setBotPredicate("species", device["type"])
+        self.kernel.setBotPredicate("species", device["platform"])
         self.kernel.setBotPredicate("genus", "Mycroft")
         self.kernel.setBotPredicate("family", "virtual personal assistant")
         self.kernel.setBotPredicate("order", "artificial intelligence")
