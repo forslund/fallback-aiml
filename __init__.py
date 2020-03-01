@@ -22,7 +22,6 @@ from os.path import dirname, isfile
 from mycroft.api import DeviceApi
 from mycroft.skills.core import FallbackSkill, intent_handler
 from adapt.intent import IntentBuilder
-from mycroft.util.log import LOG
 
 
 class AimlFallback(FallbackSkill):
@@ -30,9 +29,9 @@ class AimlFallback(FallbackSkill):
     def __init__(self):
         super(AimlFallback, self).__init__(name='AimlFallback')
         self.kernel = aiml.Kernel()
-        self.aiml_path = os.path.join(dirname(__file__), "aiml")
+        self.aiml_path = os.path.join(dirname(__file__), 'aiml')
         self.brain_path = os.path.join(self.file_system.path,
-                                       "bot_brain.brn")
+                                       'bot_brain.brn')
         # reloading skills will also reset this 'timer', so ideally it should
         # not be too high
         self.line_count = 1
@@ -46,13 +45,14 @@ class AimlFallback(FallbackSkill):
         return
 
     def load_brain(self):
-        LOG.info('Loading Brain')
+        """Set up the aiml engine using available device information."""
+        self.log.info('Loading Brain')
         if isfile(self.brain_path):
             self.kernel.bootstrap(brainFile=self.brain_path)
         else:
             aimls = listdir(self.aiml_path)
-            for aiml in aimls:
-                self.kernel.learn(os.path.join(self.aiml_path, aiml))
+            for aiml_file in aimls:
+                self.kernel.learn(os.path.join(self.aiml_path, aiml_file))
             self.kernel.saveBrain(self.brain_path)
         try:
             device = DeviceApi().get()
@@ -81,7 +81,8 @@ class AimlFallback(FallbackSkill):
     @intent_handler(IntentBuilder("ResetMemoryIntent").require("Reset")
                                                       .require("Memory"))
     def handle_reset_brain(self, message):
-        LOG.debug('Deleting brain file')
+        """Delete the stored memory, effectively resetting the brain state."""
+        self.log.debug('Deleting brain file')
         # delete the brain file and reset memory
         self.speak_dialog("reset.memory")
         remove_file(self.brain_path)
@@ -89,6 +90,10 @@ class AimlFallback(FallbackSkill):
         return
 
     def ask_brain(self, utterance):
+        """Send a query to the AIML brain.
+
+        Saves the state to disk once in a while.
+        """
         response = self.kernel.respond(utterance)
         # make a security copy once in a while
         if (self.line_count % self.save_loop_threshold) == 0:
@@ -104,6 +109,11 @@ class AimlFallback(FallbackSkill):
         return
 
     def handle_fallback(self, message):
+        """Mycroft fallback handler interfacing the AIML.
+
+        If enabled in home, this will parse a sentence and return answer from
+        the AIML engine.
+        """
         if self.settings.get("enabled"):
             if not self.brain_loaded:
                 self.load_brain()
@@ -118,14 +128,12 @@ class AimlFallback(FallbackSkill):
         return False
 
     def shutdown(self):
+        """Shut down any loaded brain."""
         if self.brain_loaded:
             self.kernel.saveBrain(self.brain_path)
             self.kernel.resetBrain()  # Manual remove
         self.remove_fallback(self.handle_fallback)
         super(AimlFallback, self).shutdown()
-
-    def stop(self):
-        pass
 
 
 def create_skill():
