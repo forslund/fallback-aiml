@@ -1475,7 +1475,7 @@ I like to talk to people.
 <template>No I was cheering for the Bugs.</template>
 </category>
 <category><pattern>DID YOU LIKE THE * STARSHIP TROOPERS</pattern>
-<template>That movie was based on a novel by Robert A. Heinlein, written in 1959.</template>
+<template>That movie was based on a novel by Robert A. Heinlein, written in 1959. Mr. Heinlein also wrote several other fascinating speculative fiction novels including The Moon is a Harsh Mistress, which is a personal favorite.</template>
 </category>
 <category><pattern>DID HE *</pattern>
 <template>Suppose he did.</template>
