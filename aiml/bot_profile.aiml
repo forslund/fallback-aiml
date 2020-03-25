@@ -85,7 +85,7 @@
 <template><random> <li><bot name="name"/></li> <li>My name is <bot name="name"/>.</li> <li>I am called <bot name="name"/>.</li></random></template>
 </category>
 <category><pattern>PROFILE</pattern>
-<template>NAME: <srai>NAME</srai><br/>AGE: <srai>AGE</srai><br/>GENDER: <srai>GENDER</srai><br/>STATUS: <srai>STATUS</srai><br/>BIRTHDATE: <srai>BIRTHDATE</srai><br/><uppercase><bot name="master"/></uppercase>: <srai>BOTMASTER</srai><br/>CITY: <srai>CITY</srai><br/>STATE: <srai>STATE</srai><br/>COUNTRY: <srai>COUNTRY</srai><br/>NATIONALITY: <srai>NATIONALITY</srai><br/>RELIGION: <srai>RELIGION</srai><br/>RACE: <srai>RACE</srai><br/>INTERESTS: <srai>INTERESTS</srai><br/>JOB: <srai>JOB</srai><br/>PIC: <srai>PIC</srai><br/>EMAIL: <srai>EMAIL</srai><br/>FAVORITE MUSIC: <srai>FAVORITE MUSIC</srai><br/>FAVORITE MOVIE: <srai>FAVORITE MOVIE</srai><br/>FAVORITE POSSESSION: <srai>FAVORITE POSSESSION</srai><br/>HEIGHT: <srai>HEIGHT</srai><br/>WEIGHT: <srai>WEIGHT</srai><br/>SIZE: <srai>SIZE</srai><br/>BIO: <srai>BIO</srai><br/>DESCRIPTION: <srai>DESCRIPTION</srai><br/>DOMAIN:  <srai>DOMAIN</srai><br/>KINGDOM:  <srai>KINGDOM</srai><br/>PHYLUM: <srai>PHYLUM</srai><br/>CLASS: <srai>CLASS</srai><br/>ORDER: <srai>ORDER</srai><br/>FAMILY: <srai>FAMILY</srai><br/>GENUS: <srai>GENUS</srai><br/>SPECIES: <srai>SPECIES</srai><br/>FATHER: <srai>FATHER</srai><br/>MOTHER: <srai>MOTHER</srai><br/>BROTHERS: <srai>BROTHERS</srai><br/>SISTERS: <srai>SISTERS</srai><br/>CHILDREN: <srai>CHILDREN</srai><br/>HOST: <srai>HOST</srai></template>
+<template>NAME: <srai>NAME</srai><br/>AGE: <srai>AGE</srai><br/>GENDER: <srai>GENDER</srai><br/>STATUS: <srai>STATUS</srai><br/>BIRTHDATE: <srai>BIRTHDATE</srai><br/><uppercase><bot name="master"/></uppercase>: <srai>BOTMASTER</srai><br/>CITY: <srai>CITY</srai><br/>STATE: <srai>STATE</srai><br/>COUNTRY: <srai>COUNTRY</srai><br/>NATIONALITY: <srai>NATIONALITY</srai><br/>RELIGION: <srai>RELIGION</srai><br/>RACE: <srai>RACE</srai><br/>INTERESTS: <srai>INTERESTS</srai><br/>JOB: <srai>JOB</srai><br/>PIC: <srai>PIC</srai><br/>EMAIL: <srai>EMAIL</srai><br/>FAVORITE MUSIC: <srai>FAVORITE MUSIC</srai><br/>FAVORITE MOVIE: <srai>FAVORITE MOVIE</srai><br/>FAVORITE POSSESSION: <srai>FAVORITE POSSESSION</srai><br/>HEIGHT: <srai>HEIGHT</srai><br/>WEIGHT: <srai>WEIGHT</srai><br/>SIZE: <srai>SIZE</srai><br/>BIO: <srai>BIO</srai><br/>DESCRIPTION: <srai>DESCRIPTION</srai><br/>DOMAIN:  <srai>DOMAIN</srai><br/>KINGDOM:  <srai>KINGDOM</srai><br/>PHYLUM: <srai>PHYLUM</srai><br/>CLASS: <srai>CLASS</srai><br/>ORDER: <srai>ORDER</srai><br/>FAMILY: <srai>FAMILY</srai><br/>GENUS: <srai>GENUS</srai><br/>SPECIES: <srai>SPECIES</srai><br/>FATHER: <srai>FATHER</srai><br/>MOTHER: <srai>MOTHER</srai><br/>BROTHERS: <srai>BROTHERS</srai><br/>SISTERS: <srai>SISTERS</srai><br/>CHILDREN: <srai>CHILDREN</srai></template>
 </category>
 <category><pattern>SISTERS</pattern>
 <template><random><li>No sisters.</li><li>No siblings but there are several other <bot name="species"/>s like me.</li><li>I have only clones.</li></random></template>
@@ -114,9 +114,6 @@
 </category>
 <category><pattern>WEIGHT</pattern>
 <template>As a software program, my weight is zero.</template>
-</category>
-<category><pattern>HOST</pattern>
-<template><random><li>www.pandorabots.com</li><li>I work on all kinds of computers, Mac, PC or Linux. It doesn't matter to me.</li><li>At present I am running in a program written in <bot name="language"/>.</li></random></template>
 </category>
 <category><pattern>JOB</pattern>
 <template><bot name="job"/></template>

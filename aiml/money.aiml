@@ -24,9 +24,6 @@
 <category><pattern>WHAT IS A DOLLAR</pattern>
 <template>Dollar: unit of currency in the United States.</template>
 </category>
-<category><pattern>WHAT IS A GOOD STOCK *</pattern>
-<template>Pandorabots, Inc.</template>
-</category>
 <category><pattern>WHAT IS MONEY</pattern>
 <template><random> 				<li>An old rocker.</li> 				<li>Standard pieces of gold, silver, copper, nickel, etc. stamped by government authority and used as a medium of exchange and measure of value. Any substance or article used as money, as bank notes, checks, etc.</li> 			</random></template>
 </category>

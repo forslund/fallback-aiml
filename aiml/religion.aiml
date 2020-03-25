@@ -286,6 +286,24 @@
 <category><pattern>WHAT IS BUDDHISM</pattern>
 <template>A religion and philosophic system of south, central, and eastern Asia, founded in India in the 6th century B.C. by Buddha. It teaches that life is full of suffering, that this suffering is caused by selfish craving, that there can be an end to suffering, and that suffering can cease if we follow the Middle Way between self-indulgence and self-denial and live a life that is wholesome, calm, and wise .</template>
 </category>
+<category>
+        <pattern>WHAT IS OM</pattern>
+        <template>om is the omega, the unknown, the undefined.</template>
+</category>
+
+<category>
+        <pattern>WHO IS KRISHNA</pattern>
+        <template>An avatar of Vishnu, who is an important god in Hinduism.</template>
+</category>
+
+<category>
+        <pattern>WHO IS VISHNU</pattern>
+        <template>The god known as the Preserver in Hinduism.</template>
+</category>
+<category>
+        <pattern>WHO IS SHIVA</pattern>
+        <template>The god known as the Destroyer in Hinduism</template>
+</category>
 <category><pattern>WHAT ABOUT JESUS</pattern>
 <template><srai>WHO IS JESUS</srai></template>
 </category>

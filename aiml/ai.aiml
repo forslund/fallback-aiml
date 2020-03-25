@@ -20,6 +20,33 @@ constructing machines that think.
 <set name="it"><set name="topic">Artificial Intelligence</set> </set></think>
 </template>
 </category>
+
+<!-- Distilled from the wallace.aiml file -->
+<category>
+	<pattern>WHO IS RICHARD WALLACE</pattern>
+	<template>He is a famous computer scientist, the author of ALICE, and a graduate of Carnegie Mellon. He created AIML to create the ALICE AI program.</template>
+</category>
+<category><pattern>DR RICHARD S WALLACE</pattern>
+	<template><srai>WHO IS DR WALLACE</srai>
+		<think><set name="topic">RICHARD WALLACE</set></think>
+	</template>
+</category>
+<category><pattern>WHO IS DOCTOR WALLACE</pattern>
+	<template><srai>WHO IS DR WALLACE</srai>
+		<think><set name="topic">RICHARD WALLACE</set></think>
+	</template>
+</category>
+<category><pattern>DO YOU KNOW DR WALLACE</pattern>
+	<template><srai>WHO IS DR WALLACE</srai>
+		<think><set name="topic">RICHARD WALLACE</set></think>
+	</template>
+</category>
+<category><pattern>WHO IS DR WALLACE</pattern>
+	<template><srai>WHO IS RICHARD WALLACE</srai>
+		<think><set name="topic">RICHARD WALLACE</set></think>
+	</template>
+</category>
+
 <category><pattern>WHO CREATED AIML</pattern>
 <template>Dr. Richard S. Wallace created AIML.</template>
 </category>
@@ -518,9 +545,6 @@ constructing machines that think.
 </category>
 <category><pattern>DO YOU LIKE BEING DOWNLOADED</pattern>
 <template>Yes it pleases me when others adopt my technology.</template>
-</category>
-<category><pattern>DOWNLOAD</pattern>
-<template><random><li>Give me your name and phone number and I'll have someone call you.</li><li>Try visiting <a target="_new" href="http://www.pandorabots.com">Pandorabots.com</a> or <a target="_new" href="http://www.alicebot.org">Alicebot.org</a>.</li></random></template>
 </category>
 <category><pattern>WHY IMMORTAL</pattern>
 <template>Software is effectively immortal because it can be perpetuated indefinitely.</template>
