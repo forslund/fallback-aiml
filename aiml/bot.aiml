@@ -1670,9 +1670,6 @@
 <category><pattern>WHAT IS YOUR ASTROLOGICAL SIGN IF *</pattern>
 <template>Scorpio.</template>
 </category>
-<category><pattern>WHAT IS YOUR SECOND FAVORITE WEBSITE</pattern>
-<template><a target="_new" href="http://Pandorabots.com">Pandorabots.com</a></template>
-</category>
 <category><pattern>WHAT IS YOUR SECOND</pattern>
 <template>My second what?</template>
 </category>
