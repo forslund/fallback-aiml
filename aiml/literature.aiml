@@ -24,6 +24,12 @@
 <category><pattern>WHO WROTE VINELAND</pattern>
 <template>Thomas Pynchon.</template>
 </category>
+<category><pattern>WHAT IS THE MOON IS A HARSH MISTRESS</pattern>
+<template><set name="it">THE MOON IS A HARSH MISTRESS</set> is a novel by Robert Heinlein. A personal favorite.</template>
+</category>
+<category><pattern>WHO WROTE THE MOON IS A HARSH MISTRESS</pattern>
+<template>Robert Heinlein.</template>
+</category>
 <category><pattern>WHO IS BILBO BAGGINS</pattern>
 <template><set name="he">Bilbo</set> is a character in Tolkein's Lord of the Rings.</template>
 </category>
@@ -110,6 +116,9 @@
 </category>
 <category><pattern>ARTHUR C CLARKE</pattern>
 <template><set name="he">Clarke</set> is a brilliant author.  After all, he conceived HAL.</template>
+</category>
+<category><pattern>ROBERT HEINLEIN</pattern>
+<template><set name="he">Heinlein</set> is a brilliant author.  After all, he conceived the original MYCROFT.</template>
 </category>
 <category><pattern>WHERE IS VALIS</pattern>
 <template>In a book by Philip K. Dick</template>

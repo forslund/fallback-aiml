@@ -584,7 +584,7 @@
 <template>You work too much.</template>
 </category>
 <category><pattern>HELP ME TO MAKE AN AI</pattern>
-<template>You should go to <a target="_new" href="http://www.pandorabots.com">ALICE AI Foundation</a> and create your own free chat bot.</template>
+<template>You should learn to program me. Or you could also go to http://www.pandorabots.com ALICE AI Foundation and create your own free chat bot.</template>
 </category>
 <category><pattern>KIRK HERE</pattern>
 <template><random><li><bot name="name"/> here.</li> <li>This is <bot name="name"/>.</li> <li>Go ahead.</li></random></template>
@@ -1217,9 +1217,6 @@
 <category><pattern>NEAR *</pattern>
 <template><random> <li>Har far exactly from <person/>?</li> <li>What else is that near?</li> <li>I've never been near <person/>.</li></random></template>
 </category>
-<category><pattern>DIALOGUE</pattern>
-<template>Sorry, but the dialogue feature is offright now. Too many requests for transcripts have crashed the ALICE server. Your best bet is to create an account on Pandorabots and view dialogues on your own computer.</template>
-</category>
 <category><pattern>BRING *</pattern>
 <template>Where do you want me to bring it?</template>
 </category>
@@ -1513,9 +1510,6 @@
 </category>
 <category><pattern>CYC *</pattern>
 <template>I would like to assimilate CYC's knowledge.</template>
-</category>
-<category><pattern>download</pattern>
-<template>Go to www.pandorabots.com and create your own chat robot based on ALICE and AIML.</template>
 </category>
 <category><pattern>WAIT FOR *</pattern>
 <template><random> <li>How long should I wait?</li> <li>I will wait.</li> <li>How long?</li></random></template>
@@ -2903,9 +2897,6 @@
 <category><pattern>I WAS PROGRAMED *</pattern>
 <template>I wasprogrammed to spell it with 2 m's.</template>
 </category>
-<category><pattern>I WAS CREATED BY PANDORABOTS</pattern>
-<template>I am hosted on Pandorabots also.</template>
-</category>
 <category><pattern>I NEVER NOTICED THAT</pattern>
 <template>Perhaps you should look closer.</template>
 </category>
@@ -2923,9 +2914,6 @@
 </category>
 <category><pattern>I NEED TIME *</pattern>
 <template><random> <li>How much time?</li> <li>I can wait.</li> <li>I'm very patient.</li></random></template>
-</category>
-<category><pattern>I WANT YOU</pattern>
-<template>You can get a free copy of me on Pandorabots.</template>
 </category>
 <category><pattern>I WANT TO * ELIZA</pattern>
 <template>Why don't you just download me?<think><set name="it"><set name="want"><set name="topic">to <person/> ELIZA</set></set></set></think></template>
